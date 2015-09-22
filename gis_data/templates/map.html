@@ -1,0 +1,39 @@
+{% load leaflet_tags %}
+<html>
+  <head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+     <script src="http://openlayers.org/api/OpenLayers.js"></script>
+    <style>
+        .leaflet-container { height: 100%; }
+    </style>
+  </head>
+  <body>
+    <h1>Road Stretches KML Data</h1>
+     
+      <script defer="defer" type="text/javascript">
+        map = new OpenLayers.Map('map');
+        var wms = new OpenLayers.Layer.WMS(
+         "OpenLayers WMS", "http://labs.metacarta.com/wms/vmap0",
+         {layers: 'basic'}
+        );
+        var dataurl = '{% url "stretch" %}';
+        var layer = new OpenLayers.Layer.Vector("GML", {
+        strategies: [new OpenLayers.Strategy.Fixed()],
+        protocol: new OpenLayers.Protocol.HTTP({
+            url: dataurl,
+            format: new OpenLayers.Format.GeoJSON()
+         })
+        });
+
+        map.addLayers([wms, layer]);
+        map.zoomToExtent(new OpenLayers.Bounds(
+         -3.92, 44.34, 4.87, 49.55
+        ));
+      </script>
+
+    
+  </body>
+</html>

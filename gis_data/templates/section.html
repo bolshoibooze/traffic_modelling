@@ -1,0 +1,29 @@
+{% load leaflet_tags %}
+<html>
+  <head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <style>
+        .leaflet-container { height: 100%; }
+        .header {text-align:center;}
+    </style>
+  </head>
+  <body>
+    <h1>Road Section</h1>
+    {% leaflet_map "main" callback="main_map_init" %}
+
+    <script type="text/javascript">
+        function main_map_init (map, options) {
+            var dataurl = '{% url "section" %}';
+            // Download GeoJSON via Ajax
+            $.getJSON(dataurl, function (section) {
+                // Add GeoJSON layer
+                L.geoJson(section).addTo(map);
+            });
+        }
+    </script>
+    
+  </body>
+</html>

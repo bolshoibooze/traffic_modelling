@@ -1,0 +1,89 @@
+ 
+ 
+  <script type="text/javascript">
+  Proj4js.defs["EPSG:32737"] ="+proj=utm +zone=37 +south +ellps=WGS84 +datum=WGS84 +units=m +no_defs ";
+  Proj4js.defs["EPSG:3857"]=Proj4js.defs["GOOGLE"];
+  var mapExtent= new OpenLayers.Bounds(170361.569, 9963401.274,183801.419, 9971245.621);
+  mapExtent.transform(new OpenLayers.Projection('EPSG:32737'), new 
+  OpenLayers.Projection('EPSG:3857'));
+
+  var options = {
+                projection: new OpenLayers.Projection("EPSG:3857"),
+                displayProjection: new OpenLayers.Projection("EPSG:32737"),
+                units: "m",
+                //maxResolution: "auto",
+                maxResolution: 156543.0339,
+                maxExtent: mapExtent ,
+                minExtent: "auto",
+                restrictedExtent: mapExtent
+            };
+
+  map = new OpenLayers.Map('map', options);
+
+ var LandParcel= new OpenLayers.Layer.WMS("Land Parcels","http://localhost:8082/geoserver/wms", {
+   layers:"nakinfo:nk_land_parcels",
+   tiled: true,
+   format:"image/gif",
+   transparent:true,
+   projection: new OpenLayers.Projection("EPSG:32737")}, {visibility: false, opacity:0.3}
+ );
+  map.addLayer(LandParcel);
+  
+  </script>
+  
+  
+  ogr2ogr -f "CSV" "Stretch_Data" "Stretch_Based_Traffic_Data_13_04_2015.shp" -t_srs "EPSG:4326" -lco "GEOMETRY=AS_WKT" -lco "LINEFORMAT=CRLF" -lco "SEPARATOR=SEMICOLON"
+  
+  ogr2ogr -f "Stretch_GIS_Data" "Stretch_Based_Traffic_Data_13_04_2015.shp" -s_srs EPSG:32737 -t_srs EPSG:3857
+  
+  ogr2ogr -f "ESRI Shapefile"  Stretch_GIS_Data.shp Stretch_Based_Traffic_Data_13_04_2015.shp  -s_srs EPSG:32737 -t_srs EPSG:4326
+  
+  
+  PROJ.4 : '+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs '
+
+OGC WKT :
+PROJCS["WGS_84_Pseudo_Mercator",
+    GEOGCS["GCS_WGS_1984",
+        DATUM["WGS_1984",
+            SPHEROID["WGS_84",6378137,298.257223563]],
+        PRIMEM["Greenwich",0],
+        UNIT["Degree",0.017453292519943295]],
+    PROJECTION["Mercator_1SP"],
+    PARAMETER["central_meridian",0],
+    PARAMETER["false_easting",0],
+    PARAMETER["false_northing",0],
+    UNIT["Meter",1],
+    PARAMETER["latitude_of_origin",0.0]]
+
+#------------------------------------------------#
+
+
+PROJ.4 : '+proj=merc +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs '
+
+OGC WKT :
+PROJCS["WGS_84_Pseudo_Mercator",
+    GEOGCS["GCS_WGS_1984",
+        DATUM["WGS_1984",
+            SPHEROID["WGS_84",6378137,298.257223563]],
+        PRIMEM["Greenwich",0],
+        UNIT["Degree",0.017453292519943295]],
+    PROJECTION["Mercator_1SP"],
+    PARAMETER["central_meridian",0],
+    PARAMETER["false_easting",0],
+    PARAMETER["false_northing",0],
+    UNIT["Meter",1],
+    PARAMETER["latitude_of_origin",0.0]]
+
+#------ compatible data info ---------#
+PROJ.4 : '+proj=longlat +datum=WGS84 +no_defs '
+
+OGC WKT :
+GEOGCS["GCS_WGS_1984",
+    DATUM["WGS_1984",
+        SPHEROID["WGS_84",6378137.0,298.257223563]],
+    PRIMEM["Greenwich",0.0],
+    UNIT["Degree",0.0174532925199433]]
+
+
+  
+  

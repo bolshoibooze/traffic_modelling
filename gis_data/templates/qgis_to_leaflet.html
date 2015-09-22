@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QGIS2leaf webmap</title>
+	<meta charset="utf-8" />
+	
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.css" /> <!-- we will us e this as the styling script for our webmap-->
+	
+<style>
+	body {
+		padding: 0;
+		margin: 0;
+	}
+	html, body, #map {
+		height: 100px;
+		width: 800px;
+	}
+</style>
+</head>
+<body>
+	<div id="map"></div> <!-- this is the initial look of the map. in most cases it is done externally using something like a map.css stylesheet were you can specify the look of map elements, like background color tables and so on.-->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.2/leaflet.js"></script> <!-- this is the javascript file that does the magic-->
+  
+		<script src='exp_sidewalkcafes.js' ></script>
+		
+		<script src='exp_nybb.js' ></script>
+		
+	<script>
+		var map = L.map('map', { zoomControl:true }).fitBounds([[40.7001163235,-74.0320533993],[40.7323412874,-73.9664786596]]);
+		var additional_attrib = 'created w. <a href="https://github.com/geolicious/qgis2leaf" target ="_blank">gis2leaf</a> by <a href="http://www.geolicious.de" target ="_blank">Geolicious</a> & contributors<br>';
+	var feature_group = new L.featureGroup([]);
+	
+		map.attributionControl.addAttribution(additional_attrib + 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>');
+		L.tileLayer('http://a.tile.stamen.com/terrain/{z}/{x}/{y}.png').addTo(map);
+		
+			function pop_sidewalkcafes(feature, layer) {
+				var popupContent = '<table><tr><th>attribute</th><th>value</th></tr><tr><td>CafeType</td><td>' + feature.properties.CafeType + '</td></tr><tr><td>Shape_Leng</td><td>' + feature.properties.Shape_Leng + '</td></tr></table>';
+				layer.bindPopup(popupContent);
+			}
+					
+			var exp_sidewalkcafesJSON = new L.geoJson(exp_sidewalkcafes,{
+				onEachFeature: pop_sidewalkcafes,
+				style: function (feature) {
+					return {weight: feature.properties.radius_qgis2leaf,
+							color: feature.properties.color_qgis2leaf,
+							opacity: feature.properties.transp_qgis2leaf,
+							fillOpacity: feature.properties.transp_fill_qgis2leaf};
+					}
+				});
+			feature_group.addLayer(exp_sidewalkcafesJSON);
+			
+					//add comment sign to hide this layer on the map in the initial view.
+					exp_sidewalkcafesJSON.addTo(map);
+			function pop_nybb(feature, layer) {
+				var popupContent = '<table><tr><th>attribute</th><th>value</th></tr><tr><td>BoroCode</td><td>' + feature.properties.BoroCode + '</td></tr><tr><td>BoroName</td><td>' + feature.properties.BoroName + '</td></tr><tr><td>Shape_Leng</td><td>' + feature.properties.Shape_Leng + '</td></tr><tr><td>Shape_Area</td><td>' + feature.properties.Shape_Area + '</td></tr><tr><td>diso</td><td>' + feature.properties.diso + '</td></tr><tr><td>AreaSqMile</td><td>' + feature.properties.AreaSqMile + '</td></tr></table>';
+				layer.bindPopup(popupContent);
+			}
+					
+			
+	</script>
+</body>
+</html>
+	

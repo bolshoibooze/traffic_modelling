@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title>OpenLayers Example</title>
+    <script src='http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.1'></script>
+    <script src="http://openlayers.org/api/OpenLayers.js"></script>
+    </head>
+    <body>
+      <div style="width:100%; height:100%" id="map"></div>
+      <script defer='defer' type='text/javascript'>
+        // Code goes here
+        var map = new OpenLayers.Map("map", {
+        projection: new OpenLayers.Projection("EPSG:900913")
+        });
+        var myBaseLayer = new OpenLayers.Layer.Google("Google",
+              {'sphericalMercator': true,
+               'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34)
+              });
+        var kml = new OpenLayers.Layer.Vector("KML", {strategies: [new OpenLayers.Strategy.Fixed()], styleMap: style, visibility: true,
+            projection: new OpenLayers.Projection("EPSG:4326"),
+            protocol: new OpenLayers.Protocol.HTTP({url: "/kml/", format: new OpenLayers.Format.KML()})});
+            
+        map.addLayer(myBaseLayer);
+        var myGML = new OpenLayers.Layer.GML("GML", "mygml.gml", {
+        projection: new OpenLayers.Projection("EPSG:4326")
+        });
+        map.addLayer(kml);
+      </script>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+{% load leaflet_tags %}
+<html>
+  <head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.10/proj4-src.js"></script>
+    <script src="/static/js/proj4js-combined.js" ></script>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <style>
+        .leaflet-container { height: 100%; }
+    </style>
+  </head>
+  <body>
+    <h1>Major Roads</h1>
+    {% leaflet_map "main" callback="main_map_init" %}
+
+    <script type="text/javascript">
+        function main_map_init (map, options) {
+            //var rdata = { type: 'MultiLineString' };
+            //var source = new Proj4js.Proj('EPSG:4326');
+            //var dest = new Proj4js.Proj('EPSG:3857'); 
+            //---not easily compatible with leaflet ---//
+            var dataurl = '{% url "road_data" %}';
+            Proj4js.transform(source, dest, dataurl);  
+            // Download GeoJSON via Ajax
+            $.getJSON(dataurl, function (roadData) {
+                // Add GeoJSON layer
+                L.geoJson(roadData).addTo(map);
+            });
+        }
+    </script>
+    
+    <!---
+    OpenLayers example
+    ----------------------------
+    var mOptions = {
+   projection: new OpenLayers.Projection("EPSG:3857"),
+   displayProjection: new OpenLayers.Projection("EPSG:4326"),
+   units: "m",
+   numZoomLevels: 18,
+   maxResolution: 156543.0339,
+   maxExtent: new OpenLayers.Bounds(-20037508, -20037508, 20037508, 20037508)
+   };
+   map = new OpenLayers.Map("map", mOptions);
+Then when you add your points to the map transform them from lat/lng to the map coordinate system:
+
+ var geojson_format = new OpenLayers.Format.GeoJSON({
+    'internalProjection': new OpenLayers.Projection('EPSG:3857'),
+    'externalProjection': new OpenLayers.Projection('EPSG:4326')
+    });
+ var theFeature = geojson_format.read(json[i].geometry);
+ 
+   --->
+    
+    
+  </body>
+</html>
