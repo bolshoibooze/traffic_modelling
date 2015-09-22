@@ -1,0 +1,15 @@
+django
+pandas
+django-pandas
+XlsxWriter
+django-ajax-selects
+django-leaflet
+django-wpadmin
+django-celery
+django-geojson
+psycopg2
+ipython
+Pillow
+geopy
+numpy
+xlrd
