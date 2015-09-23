@@ -6,14 +6,13 @@ from django.template import RequestContext
 from django.db.models import *
 
 
-from ua_detector.views import *
+
 from django.views.generic.list import ListView
 from django.views.generic import TemplateView
 from traffic_modelling.settings import *
-from ua_detector.generic_views import *
-from ua_detector.model_views import *
 from .models import *
 
+#deleted pesky ua_detector views
 
 class IndexView(TemplateView):
     template_name='index.html'
@@ -296,13 +295,4 @@ class TTFCPProjectionsListView(ListView):
         context['obj_list'] = TTFCP.objects.filter(Q(additional_capacity_0__gte=1)| Q(additional_capacity_1__gte=1)| Q(additional_capacity_2__gte=1)| Q(additional_capacity_3__gte=1)| Q(additional_capacity_4__gte=1)| Q(additional_capacity_5__gte=1)| Q(additional_capacity_6__gte=1)| Q(additional_capacity_7__gte=1)|Q(additional_capacity_8__gte=1))
         return context
 
-"""
-<!----
-                                                                             <a href="{% url '' %}"> </a> |<a href="{% url '' %}"> </a> |
-                                                                             <a href="{% url '' %}"> </a> |<a href="{% url '' %}"> </a> |
-                                                                             <a href="{% url '' %}"> </a> |<a href="{% url '' %}"> </a> |
-                                                                             --->         
-
-"""   
-    
  
