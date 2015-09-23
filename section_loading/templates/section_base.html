@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en" >
+
+<head> 
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+ 
+                         <title>MasterPlan-KE</title>
+      
+                          {% block meta %}           
+    <meta name="description" content="Traffic projections for Kenya's 50-year transport masterplan project">
+                          {% endblock %}
+    
+          <meta http-equiv="x-dns-prefetch-control" content="on">
+          <!---
+          <link rel="dns-prefetch" href="http://cardpesa.com/subscriptions/home/">
+          <link rel="prerender" href="http://cardpesa.com/subscriptions/home/">
+          
+          <link rel="dns-prefetch" href="http://cardpesa.com/accounts/login/">
+          <link rel="prerender" href="http://cardpesa.com/accounts/login/">
+          --->
+          
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Kenya, Masterplan, Traffic,Rail,Road,Pipeline">
+    
+     
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Traffic projections for Kenya's 50-year transport masterplan project">
+
+<!---styles --->
+
+<!---
+<link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+--->
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+
+
+<link href='http://fonts.googleapis.com/css?family=Fenix' rel='stylesheet' type='text/css'>
+
+<style>
+/*body {border:0;font-weight: normal;background-color:#F6F6F6 ;overflow:auto;color:black;font-size:1em;font-weight:normal;line-height: 1.4;font-family: 'Lato', sans-serif;padding: 0;margin: 0;} */
+
+/*
+.navigator {position: relative;margin: 30px 15px 0 0;text-align:center;}.navigator ul {margin: 0;padding: 0;}
+
+.navigator li {margin:0 5px 10px 0;padding:0;list-style:none;margin-top:5px;display: inline-block;}
+
+.navigator a {padding: 3px 12px;text-decoration: none;color: #0083ff;
+line-height: 100%; font-size: 1.3em;font-family: 'Fenix', serif;} .login-btn{border-radius:5px solid #DE1B1B;}
+
+.navigator a:hover {border-radius:5px;padding: 4px;border:2px solid #F08080;}.navigator a:visited{color: #7eccd4;}.navigator .current a {padding: 4px;border-bottom:3px solid #DE1B1B;}
+*/
+
+/* media queries to accomodate iPad */
+
+/*
+@media screen and (max-width: 600px) {
+.footer-navigator {display:none;}
+.content-area{margin-left:5%;margin-right:5%;color:black;font-size:135%;font-weight:normal;}
+.navigator {position: relative;min-height: 40px;}	
+.navigator ul {width: 180px;padding: 5px 0;position: absolute;top: 0;left: 0;
+background: #fff;  no-repeat 10px 11px;border-radius: 5px;margin-left:1%;}
+
+.navigator li {display: none;margin: 0;}.navigator .current {display: block;}
+.navigator a {display: block;padding: 5px 5px 5px 32px;text-align: left;}
+.navigator .current a {background: none;}
+}
+*/
+/* on nav hover
+.navigator ul:hover {background-image: none;}.navigator ul:hover li {display: block;margin: 0 0 5px;}
+.navigator.center ul {left: 50%;margin-left: -90px;border-bottom:3px solid #666;}img {width: 100%;}
+ */
+h1{font-size:1.3em;text-align:center;}
+h2{font-size:1.7em;text-align:center;}
+h3{font-size:2.3em;text-align:center;}
+h4{font-size:3.1em;text-align:center;}
+h5{font-size:4.1em;text-align:center;}
+h6{font-size:5.5em;text-align:center;}
+.content {margin:3% 5% 15% 5%;} .header {position: sticky;top: 0;} .centered{text-align:center;}
+.card-align {margin-left:35%;} .txt-black {color:black;font-family: 'Lato', sans-serif;}
+
+nav ul a,
+nav .brand-logo {
+  color: black;
+}
+
+</style>
+
+<link rel="stylesheet" href="{{MEDIA_URL}}/css/basic.css">
+
+<!-- 
+<link rel="stylesheet" href="{{MEDIA_URL}}site_media/css/master.min.css">
+<link rel="stylesheet" href="{{MEDIA_URL}}site_media/css/support-styles.css">
+<link rel="stylesheet" href="{{MEDIA_URL}}site_media/css/menu.css">
+<link rel="stylesheet" href="{{MEDIA_URL}}site_media/css/grid-min.css">
+<link rel="stylesheet" href="{{MEDIA_URL}}site_media/css/bootstrap.min.css">
+-->
+
+
+
+
+
+
+
+<!--- end styles --->
+</head>
+
+<body>
+        
+                                                                                    {% block header %}
+                                                                                 <div class="navbar-fixed">
+                                                                           <nav class="white txt-black" role="navigation">
+									    <div class="nav-wrapper container">
+								       <a id="logo-container" href="#" class="brand-logo">Masterplan-KE</a>
+										      <ul class="right hide-on-med-and-down">
+										        <li><a href="{% url 'datasets' %}"> Datasets</a></li>
+											<li><a href="http://masterplanke.com/admin/">AdminLogin</a></li>
+											
+										      </ul>
+
+										      <ul id="nav-mobile" class="side-nav">
+										        <li><a href="{% url 'datasets' %}"> Datasets</a></li>
+											<li><a href="http://masterplanke.com/admin/">AdminLogin</a></li>
+										      </ul>
+										      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+										    </div>
+										  </nav>
+										</div>
+
+                                                                                  
+                                                                                  
+                                                                                  {% endblock %}
+                                                                                
+                   
+                   
+                   {% block nav %}
+                   {% endblock %}
+   
+       
+                   {% block notifications %} {% endblock %}
+
+
+                   {% block content %} {% endblock %}
+                   {% block content1 %} {% endblock %}
+                   
+                   {% block content2 %} {% endblock %}
+                   
+                   {% block content3 %} {% endblock %}
+                   
+                   {% block content4 %} {% endblock %}
+                   
+                   {% block content5 %} {% endblock %}
+                   
+                   {% block content6 %} {% endblock %}
+                   
+                   {% block content7 %} {% endblock %}
+                   
+                   {% block content8 %} {% endblock %}
+                   
+                   {% block content9 %} {% endblock %}
+                   
+                   {% block content10 %} {% endblock %}
+                   
+                      
+                         
+                   {% block footer %}{% endblock %}
+               
+
+                  {% block js %}
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js "></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+         
+                  {% endblock %}
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+      
+     
+  
+
+
+    </body>
+</html>

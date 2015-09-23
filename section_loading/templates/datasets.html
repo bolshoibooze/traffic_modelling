@@ -1,0 +1,113 @@
+                                                                             {% extends "section_base.html" %}
+                                                                             
+                                                                             
+                                                                                
+                                                                                  {% block content %}
+                                                                                  <h2> All Datasets </h2>
+                                                                                  <div class="row card-align">
+										<div class="col s12 m6">
+										  <div class="card teal">
+										    <div class="card-content white-text">
+										 <h2 class="centered">Road Section Loadings</h2>
+										  <p class="centered">For various traffic scenarios as listed:</p>
+										    </div>
+				
+										    <div class="card-action centered">
+<a href="{% url 'rdbase' %}">Base Case Scenario </a> | <a href="{% url 'bcsp' %}">Projections Base Case </a> | <a href="{% url 'bwf' %}"> Base Working File </a> | <a href="{% url 'lpcu' %}">Road Traffic Loading PCUs </a> | <a href="{% url 'ltfc' %}"> Lamu Traffic </a> | <a href="{% url 'lpw' %}">With Lamu Port Working </a> | <a href="{% url 'expol' %}">Without POL Imports </a> | <a href="{% url 'pls' %}">Proportionate Lamu Share </a> | <a href="{% url 'rdfinal' %}">Road Final </a>
+			        
+			        
+			        
+			     
+										    </div>
+										  </div>
+										</div>
+									      </div>
+                                                                                  
+                                                                                
+                                                                                
+                                                                            
+                                                                                
+                                                                                    {% endblock %}
+                                                                                    
+                                                                                    
+                                                                                    {% block content1 %}
+                                                                                    
+                                                                                    
+                                                                                    <div class="row card-align">
+										<div class="col s12 m6">
+										  <div class="card teal">
+										    <div class="card-content white-text">
+										 <h2 class="centered">Road Traffic Projections</h2>
+										  <p class="centered">Additional lanes required for each projected period :</p>
+										    </div>
+				
+										     <div class="card-action centered">
+<a href="{% url 'rdbaseprojctns' %}"> Base Case Scenario</a> | <a href="{% url 'bcsp-projections' %}">Projections Base Case </a> | <a href="{% url 'bwf-projections' %}"> Base Working Files </a> |
+ <a href="{% url 'pls-projections' %}">Proportionate Lamu Share </a> | <a href="{% url 'lpcu-projections' %}">Road Traffic Loading PCUs </a> | <a href="{% url 'ltfc-projections' %}">Lamu Traffic </a> | <a href="{% url 'lpw-projections' %}">With Lamu Port Working  </a> |<a href="{% url 'expol-projections' %}">Without POL Imports </a> |<a href="{% url 'rdfinal-projections' %}"> Road Fianl </a> 
+			        
+			        
+			        
+			     
+										    </div>
+										  </div>
+										</div>
+									      </div>
+                                                                                    
+                                                                                   
+            
+                                                                                       {% endblock %}
+                                                                                       
+                                                                                       
+                                                                                       {% block content2 %}
+                                                                                    
+                                                                                    
+                                                                                    <div class="row card-align">
+										<div class="col s12 m6">
+										  <div class="card teal">
+										    <div class="card-content white-text">
+										 <h2 class="centered">Rail Traffic Section Loading</h2>
+								<p class="centered">No sufficient projected traffic to warrant additional capacity</p>
+										    </div>
+				
+										     <div class="card-action centered">
+	<a href="{% url 'rail-base' %}"> Rail Base Case Scenario</a> | <a href="{% url 'rltfc' %}"> With Rail Traffic Working </a> | <a href="{% url 'rail-final' %}"> Rail Final </a> 
+			      
+										    </div>
+										  </div>
+										</div>
+									      </div>
+                                                                                    
+                                                                                   
+            
+                                                                                       {% endblock %}
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       {% block content3 %}
+                                                                                    
+                                                                                    
+                                                                                    <div class="row card-align">
+										<div class="col s12 m6">
+										  <div class="card teal">
+										    <div class="card-content white-text">
+										 <h2 class="centered">Pipeline Traffic</h2>
+								          <p class="centered">Projected traffic</p>
+										    </div>
+				
+										     <div class="card-action centered">
+									<a href="{% url 'pipeline' %}"> Pipeline projected traffic</a> 
+			        
+			     
+										    </div>
+										  </div>
+										</div>
+									      </div>
+                                                                                    
+                                                                                   
+            
+                                                                                       {% endblock %}
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
