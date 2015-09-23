@@ -598,7 +598,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'traffic_modelling.wsgi.application'
+#comment this out in production
+#WSGI_APPLICATION = 'traffic_modelling.wsgi.application'
 
 
 # Database
@@ -606,11 +607,11 @@ WSGI_APPLICATION = 'traffic_modelling.wsgi.application'
 """
     'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-            'NAME': 'big_data',  
-            'USER': 'superuser',
-            'PASSWORD': 'admin',
-            'HOST': 'localhost',                      
-            'PORT': '',               
+            'NAME': 'trafficdata',
+            'USER': 'superadmin',
+            'PASSWORD': 'bolshoi53$',
+            'HOST': 'localhost',
+              
         }
 """
 
@@ -651,7 +652,7 @@ USE_TZ = True
 
 #STATIC_ROOT = os.path.join(os.path.dirname(__file__),'static/')
 
-
+STATIC_ROOT = '/var/www/masterplanke.com/static/'
 STATIC_URL = '/static/'
 
 """
