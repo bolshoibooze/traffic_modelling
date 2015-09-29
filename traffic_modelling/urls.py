@@ -25,13 +25,13 @@ admin.site.site_header = 'Master Plan-KE Site Admin'
 
 urlpatterns = [
     url(r'^$',IndexView.as_view()),
+    url(r'^accounts/',include('accounts.urls')),
+    url(r'^downloads/',include('downloads.urls')),
     url(r'^batchimport/',include('batchimport.urls')),
     url(r'^section_loading/',include('section_loading.urls')),
     url(r'^gis_data/',include('gis_data.urls')),
     
     
-    #url(r'^section_loading/', include('section_loading.urls')),
-    #url(r'^myadmin/', include(admin_site.urls)),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^kml/', all_kml)
 ]

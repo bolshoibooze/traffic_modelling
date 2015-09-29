@@ -21,6 +21,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'wpadmin',
+    #'materialadmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -32,7 +33,9 @@ INSTALLED_APPS = (
     'accounts',
     'djcelery',
     'djgeojson',
+    'downloads',
     'kombu.transport.django',
+    'pure_pagination',
     'section_loading',
     'batchimport',
     'leaflet',
@@ -52,6 +55,12 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 SERIALIZATION_MODULES = {
     'geojson': 'djgeojson.serializers'
 }
+
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 10,
+    'MARGIN_PAGES_DISPLAYED': 2,
+}
+
 LEAFLET_CONFIG = {
     # conf here
     #'SPATIAL_EXTENT': (5.0, 44.0, 7.5, 46),
@@ -601,20 +610,6 @@ TEMPLATES = [
 #comment this out in production
 #WSGI_APPLICATION = 'traffic_modelling.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-"""
-    'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-            'NAME': 'trafficdata',
-            'USER': 'superadmin',
-            'PASSWORD': 'bolshoi53$',
-            'HOST': 'localhost',
-              
-        }
-"""
-
 DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
@@ -622,12 +617,14 @@ DATABASES = {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         #'ENGINE':'django.db.backends.postgresql_psycopg2',
         'NAME': 'trafficdata',
-        'USER': 'dataman',
-        'PASSWORD': 'admin',
-        'HOST': 'localhost',                      
-        'PORT': '',  
+        'USER': 'postgres',
+        'PASSWORD': 'bolshoi53$',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
+
+
 
 
 
