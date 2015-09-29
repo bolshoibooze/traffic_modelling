@@ -1,0 +1,205 @@
+                                   {% extends "section_base.html" %}
+                                                                             
+                                                                             
+                                                                                
+                                        {% block content %}
+                                      <h2> Data set Downloads </h2>
+                                      
+                                      <div class="quick-links">
+<a class="header-link"  href="{% url 'index' %}"> Home </a> <a class="header-link"  href="{% url 'datasets' %}"> Datasets </a><a class="header-link"  href="{% url 'logout' %}">Logout </a>
+                                         </div>
+                                      
+                                      <p class="centered txt-black">
+                                      Click on any link of interest to download data set
+                                      </p>
+                                      
+                                    <div class="row card-align">
+                                      <div class="col s12 m6">
+                                      <div class="card teal">
+                                 <div class="card-content white-text">
+			   <h2 class="centered">Road Section Loadings</h2>
+		   <p class="centered bottomed">For various traffic scenarios as listed:</p>
+					    </div>
+				
+	                      <div class="centered">
+<p>
+Base Case Scenario Files:<a class="downloads" href="{% url 'road-bs-cs-sl-excel' %}">Download Excel </a> |<a class="downloads" href="{% url 'road-bs-cs-sl-csv' %}">Download CSV </a>
+</p>
+
+<p>
+ Projections Base Case Files <a class="downloads" href="{% url 'bcsp-pjs-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'bcsp-pjs-excel' %}">Download CSV </a> 
+</p>
+
+<p>
+Base Working File:<a class="downloads" href="{% url 'bwf-sl-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'bwf-sl-csv' %}">Download CSV </a> 
+</p>
+
+<p>
+Road Traffic Loading PCU Files: <a class="downloads" href="{% url 'lpcu-sl-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'lpcu-sl-csv' %}">Download CSV </a> 
+ </p>
+
+<p>
+Lamu Traffic Files:<a class="downloads" href="{% url 'ltfc-sl-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'ltfc-sl-csv' %}">Download CSV </a> 
+</p>
+
+<p>
+With Lamu Port Working Files:<a class="downloads" href="{% url 'lpw-sl-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'lpw-sl-csv' %}">Download CSV </a> 
+</p>
+
+ <p>
+ Without POL Imports:<a class="downloads" href="{% url 'xpol-sl-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'xpol-sl-csv' %}">Download CSV </a> 
+ </p>
+ 
+ <p>
+ Proportionate Lamu Share Files:<a class="downloads" href="{% url 'pls-ls-excel' %}"> Excel </a> <a class="downloads" href="{% url 'pls-ls-excel' %}"> CSV </a> 
+ </p>
+ 
+ <p>
+Road Final Files:<a class="downloads" href="{% url 'rd-final-sl-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'rd-final-sl-csv' %}">Download CSV </a> 
+ </p>
+ 
+ <p>
+Total Traffic Files:<a class="downloads" href="{% url 'ttl-tfc-sl-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'ttl-tfc-sl-csv' %}">Download CSV </a> 
+ </p>
+			        
+			        
+			        
+			     
+					  </div>
+					</div>
+				     </div>
+				  </div>
+                                                                                  
+                                                                                
+                                                                                
+                                                                            
+                                                                                
+                                            {% endblock %}
+                                                                                    
+                                                                                    
+                                           {% block content1 %}
+                                                                                    
+                                                                                    
+                                        <div class="row card-align">
+                                          <div class="col s12 m6">
+					  <div class="card teal">
+				    <div class="card-content white-text">
+				<h2 class="centered">Road Traffic Projections</h2>
+        <p class="centered bottomed">Additional lanes required for each projected period :</p>
+						</div>
+				
+				    <div class="centered">
+<p>Base Case Scenario Files:<a class="downloads" href="{% url 'road-bs-cs-pjs-excel' %}">Download Excel</a> | <a class="downloads" href="{% url 'road-bs-cs-pjs-csv' %}">Download CSV</a> </p>
+
+<p>
+Projections Base Case Files:<a class="downloads" href="{% url 'bcsp-pjs-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'bcsp-pjs-csv' %}">Download CSV </a> 
+</p>
+
+<p>
+Base Working Files :<a class="downloads" href="{% url 'bwf-pjs-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'bwf-pjs-csv' %}">Download CSV </a> 
+</p>
+
+<p>
+Proportionate Lamu Share Files:<a class="downloads" href="{% url 'pls-pjs-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'pls-pjs-csv' %}">Download CSV </a> 
+</p>
+
+<p>
+Road Traffic Loading PCU Files:<a class="downloads" href="{% url 'lpcu-pjs-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'lpcu-pjs-csv' %}">Download CSV </a> 
+</p>
+
+<p>
+Lamu Traffic Files:<a class="downloads" href="{% url 'ltfc-pjs-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'ltfc-pjs-csv' %}">Download CSV </a> 
+</p>
+
+<p>
+With Lamu Port Working Files:<a class="downloads" href="{% url 'lpw-pjs-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'lpw-pjs-csv' %}">Download CSV </a> 
+</p>
+ 
+<p>
+Without POL Imports Files:<a class="downloads" href="{% url 'xpol-pjs-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'xpol-pjs-csv' %}">Download CSV </a> 
+</p>
+
+<p>
+Road Final Files:<a class="downloads" href="{% url 'rd-final-pjs-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'rd-final-pjs-csv' %}">Download CSV </a> 
+</p>
+
+<p>
+Total Traffic Files:<a class="downloads" href="{% url 'ttl-tfc-pjs-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'ttl-tfc-pjs-csv' %}">Download CSV </a> 
+ </p>
+			        
+			        
+			        
+			     
+					          </div>
+						</div>
+					     </div>
+					   </div>
+                                                                                    
+                                                                                   
+            
+                                                {% endblock %}
+                                                                                       
+                                                                                       
+                                             {% block content2 %}
+                                                                                    
+                                                                                    
+                                           <div class="row card-align">
+			                    <div class="col s12 m6">
+					     <div class="card teal">
+	                                 <div class="card-content white-text">
+			        <h2 class="centered">Rail Traffic Section Loading</h2>
+	   <p class="centered bottomed">No sufficient projected traffic to warrant additional capacity</p>
+						 </div>
+				
+					<div class="centered">
+<p> 
+Rail Base Case Scenario Files:<a class="downloads" href="{% url 'rail-bs-cs-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'rail-bs-cs-csv' %}">Download CSV </a> 
+</p>
+
+<p>
+With Rail Traffic Working Files:<a class="downloads" href="{% url 'rltf-wrking-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'rltf-wrking-csv' %}">Download CSV </a>  
+ </p>
+ 
+<p>
+Rail Final Files: <a class="downloads" href="{% url 'rl-final-excel' %}">Download Excel </a> <a class="downloads" href="{% url 'rl-final-csv' %}">Download CSV </a> 
+</p>
+			      
+						   </div>
+						  </div>
+						</div>
+					     </div>
+                                                                                    
+                                                                                   
+            
+                                                  {% endblock %}
+                                                                                       
+                                                                                       
+                                                                                       
+                                                 {% block content3 %}
+                                                                                    
+                                                                                    
+                                               <div class="row card-align">
+						 <div class="col s12 m6">
+						 <div class="card teal">
+					<div class="card-content white-text">
+				      <h2 class="centered">Pipeline Traffic</h2>
+				   <p class="centered bottomed">Projected traffic</p>
+							</div>
+				
+					  <div class="centered">
+Pipeline projected traffic files:<a class="downloads" href="{% url 'pipeline-excel' %}"> Download Excel </a> &middot; <a class="downloads" href="{% url 'pipeline-csv' %}">Download CSV </a> 
+			        
+			     
+							</div>
+						     </div>
+						   </div>
+						 </div>
+                                                                                    
+                                                                                   
+            
+                                              {% endblock %}
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
