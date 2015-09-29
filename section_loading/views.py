@@ -8,6 +8,7 @@ from django.db.models import *
 
 
 from django.views.generic.list import ListView
+from pure_pagination.mixins import PaginationMixin
 from django.views.generic import TemplateView
 from traffic_modelling.settings import *
 from .models import *
@@ -18,281 +19,207 @@ class IndexView(TemplateView):
     template_name='index.html'
 
 
-class PipelineSectionLoadingListView(ListView):
+class PipelineSectionLoadingListView(PaginationMixin, ListView):
     model = Pipeline
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(PipelineSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = Pipeline.objects.all()
-        return context
-    
-    
+   
 
     
     
-class RailBaseSectionLoadingListView(ListView):
+class RailBaseSectionLoadingListView(PaginationMixin,ListView):
     model = RBC
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
-    
-    def get_context_data(self,**kwargs):
-        context = super(RailBaseSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = RBC.objects.all()
-        return context
+    paginate_by = 10
     
 
     
     
-class RailFinalSectionLoadingListView(ListView):
+class RailFinalSectionLoadingListView(PaginationMixin,ListView):
     model = RailFinal
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(RailFinalSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = RailFinal.objects.all()
-        return context
-    
-
+   
     
     
-    
-class RtfcWSectionLoadingListView(ListView):
+class RtfcWSectionLoadingListView(PaginationMixin,ListView):
     model = RailTrafficWorking
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(RtfcWSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = RailTrafficWorking.objects.all()
-        return context
-    
+   
 
     
     
     
-class RoadBaseSectionLoadingListView(ListView):
+class RoadBaseSectionLoadingListView(PaginationMixin,ListView):
     model = RoadBaseCase
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
-    
-    def get_context_data(self,**kwargs):
-        context = super(RoadBaseSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = RoadBaseCase.objects.all()
-        return context
-    
-class RoadBaseProjectionsListView(ListView):
+    paginate_by = 10
+   
+        
+class RoadBaseProjectionsListView(PaginationMixin,ListView):
     model = RoadBaseCase
     template_name= 'projections_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(RoadBaseProjectionsListView,self).get_context_data(**kwargs)
-        context['obj_list'] = RoadBaseCase.objects.filter(Q(additional_capacity_0__gte=1)| Q(additional_capacity_1__gte=1)| Q(additional_capacity_2__gte=1)| Q(additional_capacity_3__gte=1)| Q(additional_capacity_4__gte=1)| Q(additional_capacity_5__gte=1)| Q(additional_capacity_6__gte=1)| Q(additional_capacity_7__gte=1)|Q(additional_capacity_8__gte=1))
-        return context
+   
     
     
-    
-class BWFSectionLoadingListView(ListView):
+class BWFSectionLoadingListView(PaginationMixin,ListView):
     model = BWF
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(BWFSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = BWF.objects.all()
-        return context
-    
-class BWFProjectionsListView(ListView):
+   
+        
+class BWFProjectionsListView(PaginationMixin,ListView):
     model = BWF
     template_name= 'projections_list.html'
     context_object_name='obj'
-    
-    
-    def get_context_data(self,**kwargs):
-        context = super(BWFProjectionsListView,self).get_context_data(**kwargs)
-        context['obj_list'] = BWF.objects.filter(Q(additional_capacity_0__gte=1)| Q(additional_capacity_1__gte=1)| Q(additional_capacity_2__gte=1)| Q(additional_capacity_3__gte=1)| Q(additional_capacity_4__gte=1)| Q(additional_capacity_5__gte=1)| Q(additional_capacity_6__gte=1)| Q(additional_capacity_7__gte=1)|Q(additional_capacity_8__gte=1))
-        return context
+    paginate_by = 10
+   
     
     
     
     
-    
-class RoadFinalSectionLoadingListView(ListView):
+class RoadFinalSectionLoadingListView(PaginationMixin,ListView):
     model = RoadFinal
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(RoadFinalSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = RoadFinal.objects.all()
-        return context
+  
     
-    
-class RoadFinalProjectionsListView(ListView):
+class RoadFinalProjectionsListView(PaginationMixin,ListView):
     model = RoadFinal
     template_name= 'projections_list.html'
     context_object_name='obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(RoadFinalProjectionsListView,self).get_context_data(**kwargs)
-        context['obj_list'] = RoadFinal.objects.filter(Q(additional_capacity_0__gte=1)| Q(additional_capacity_1__gte=1)| Q(additional_capacity_2__gte=1)| Q(additional_capacity_3__gte=1)| Q(additional_capacity_4__gte=1)| Q(additional_capacity_5__gte=1)| Q(additional_capacity_6__gte=1)| Q(additional_capacity_7__gte=1)|Q(additional_capacity_8__gte=1))
-        return context
+   
     
     
-    
-class BCSPSectionLoadingListView(ModelListView):
+class BCSPSectionLoadingListView(PaginationMixin,ListView):
     model = BCSP
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(BCSPSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = BCSP.objects.all()
-        return context
-    
-class BCSPProjectionsListView(ListView):
+   
+        
+class BCSPProjectionsListView(PaginationMixin,ListView):
     model = BCSP
     template_name= 'projections_list.html'
     context_object_name='obj'
-    
-    def get_context_data(self,**kwargs):
-        context = super(BCSPProjectionsListView,self).get_context_data(**kwargs)
-        context['obj_list'] = BCSP.objects.filter(Q(additional_capacity_0__gte=1)| Q(additional_capacity_1__gte=1)| Q(additional_capacity_2__gte=1)| Q(additional_capacity_3__gte=1)| Q(additional_capacity_4__gte=1)| Q(additional_capacity_5__gte=1)| Q(additional_capacity_6__gte=1)| Q(additional_capacity_7__gte=1)|Q(additional_capacity_8__gte=1))
-        return context
+    paginate_by = 10
+   
     
     
-    
-class xPOLSectionLoadingListView(ListView):
+class xPOLSectionLoadingListView(PaginationMixin,ListView):
     model = xPOL
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(xPOLSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = xPOL.objects.all()
-        return context
-    
-class xPOLProjectionsListView(ListView):
+   
+        
+class xPOLProjectionsListView(PaginationMixin,ListView):
     model = xPOL
     template_name= 'projections_list.html'
     context_object_name='obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(xPOLProjectionsListView,self).get_context_data(**kwargs)
-        context['obj_list'] = xPOL.objects.filter(Q(additional_capacity_0__gte=1)| Q(additional_capacity_1__gte=1)| Q(additional_capacity_2__gte=1)| Q(additional_capacity_3__gte=1)| Q(additional_capacity_4__gte=1)| Q(additional_capacity_5__gte=1)| Q(additional_capacity_6__gte=1)| Q(additional_capacity_7__gte=1)|Q(additional_capacity_8__gte=1))
-        return context
+   
     
     
-    
-class LPWSectionLoadingListView(ListView):
+class LPWSectionLoadingListView(PaginationMixin,ListView):
     model = LPW
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(LPWSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = LPW.objects.all()
-        return context
-    
-class LPWProjectionsListView(ListView):
+   
+        
+class LPWProjectionsListView(PaginationMixin,ListView):
     model = LPW
     template_name= 'projections_list.html'
     context_object_name='obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(LPWProjectionsListView,self).get_context_data(**kwargs)
-        context['obj_list'] = LPW.objects.filter(Q(additional_capacity_0__gte=1)| Q(additional_capacity_1__gte=1)| Q(additional_capacity_2__gte=1)| Q(additional_capacity_3__gte=1)| Q(additional_capacity_4__gte=1)| Q(additional_capacity_5__gte=1)| Q(additional_capacity_6__gte=1)| Q(additional_capacity_7__gte=1)|Q(additional_capacity_8__gte=1))
-        return context
+   
     
     
-    
-class LTFCSectionLoadingListView(ListView):
+class LTFCSectionLoadingListView(PaginationMixin,ListView):
     model = LTFC
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(LTFCSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = LTFC.objects.all()
-        return context
     
-class LTFCProjectionsListView(ListView):
+class LTFCProjectionsListView(PaginationMixin,ListView):
     model = LTFC
     template_name= 'projections_list.html'
     context_object_name='obj'
-    
-    def get_context_data(self,**kwargs):
-        context = super(LTFCProjectionsListView,self).get_context_data(**kwargs)
-        context['obj_list'] = LTFC.objects.filter(Q(additional_capacity_0__gte=1)| Q(additional_capacity_1__gte=1)| Q(additional_capacity_2__gte=1)| Q(additional_capacity_3__gte=1)| Q(additional_capacity_4__gte=1)| Q(additional_capacity_5__gte=1)| Q(additional_capacity_6__gte=1)| Q(additional_capacity_7__gte=1)|Q(additional_capacity_8__gte=1))
-        return context
+    paginate_by = 10
     
     
     
-class LPCUSectionLoadingListView(ListView):
+    
+class LPCUSectionLoadingListView(PaginationMixin,ListView):
     model = LPCU
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(LPCUSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = LPCU.objects.all()
-        return context
-    
-class LPCUProjectionsListView(ListView):
+  
+        
+class LPCUProjectionsListView(PaginationMixin,ListView):
     model = LPCU
     template_name= 'projections_list.html'
     context_object_name='obj'
-    
-    def get_context_data(self,**kwargs):
-        context = super(LPCUProjectionsListView,self).get_context_data(**kwargs)
-        context['obj_list'] = LPCU.objects.filter(Q(additional_capacity_0__gte=1)| Q(additional_capacity_1__gte=1)| Q(additional_capacity_2__gte=1)| Q(additional_capacity_3__gte=1)| Q(additional_capacity_4__gte=1)| Q(additional_capacity_5__gte=1)| Q(additional_capacity_6__gte=1)| Q(additional_capacity_7__gte=1)|Q(additional_capacity_8__gte=1))
-        return context
+    paginate_by = 10
     
     
     
-class PLSSectionLoadingListView(ListView):
+    
+class PLSSectionLoadingListView(PaginationMixin,ListView):
     model = PLS
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(PLSSectionLoadingListView,self).get_context_data(**kwargs)
-        context['obj_list'] = PLS.objects.all()
-        return context
-    
-class PLSProjectionsListView(ListView):
+   
+        
+class PLSProjectionsListView(PaginationMixin,ListView):
     model = PLS
     template_name= 'projections_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(PLSProjectionsListView,self).get_context_data(**kwargs)
-        context['obj_list'] = PLS.objects.filter(Q(additional_capacity_0__gte=1)| Q(additional_capacity_1__gte=1)| Q(additional_capacity_2__gte=1)| Q(additional_capacity_3__gte=1)| Q(additional_capacity_4__gte=1)| Q(additional_capacity_5__gte=1)| Q(additional_capacity_6__gte=1)| Q(additional_capacity_7__gte=1)|Q(additional_capacity_8__gte=1))
-        return context
-    
+   
     
 
-class TTFCPSectionLoadingListView(ListView):
+class TTFCPSectionLoadingListView(PaginationMixin,ListView):
     model = TTFCP
     template_name= 'section_loading_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(TTFCPSectionLoadingListViewself).get_context_data(**kwargs)
-        context['obj_list'] = TTFCP.objects.all()
-        return context
-    
-class TTFCPProjectionsListView(ListView):
+   
+class TTFCPProjectionsListView(PaginationMixin,ListView):
     model = TTFCP
     template_name= 'projections_list.html'
     context_object_name = 'obj'
+    paginate_by = 10
     
-    def get_context_data(self,**kwargs):
-        context = super(TTFCPProjectionsListView,self).get_context_data(**kwargs)
-        context['obj_list'] = TTFCP.objects.filter(Q(additional_capacity_0__gte=1)| Q(additional_capacity_1__gte=1)| Q(additional_capacity_2__gte=1)| Q(additional_capacity_3__gte=1)| Q(additional_capacity_4__gte=1)| Q(additional_capacity_5__gte=1)| Q(additional_capacity_6__gte=1)| Q(additional_capacity_7__gte=1)|Q(additional_capacity_8__gte=1))
-        return context
-
- 
+   

@@ -1,111 +1,139 @@
-                                                                             {% extends "section_base.html" %}
+                                   {% extends "section_base.html" %}
                                                                              
                                                                              
                                                                                 
-                                                                                  {% block content %}
-                                                                                  <h2> All Datasets </h2>
-                                                                                  <div class="row card-align">
-										<div class="col s12 m6">
-										  <div class="card teal">
-										    <div class="card-content white-text">
-										 <h2 class="centered">Road Section Loadings</h2>
-										  <p class="centered">For various traffic scenarios as listed:</p>
-										    </div>
+                                        {% block content %}
+                                      <h2> All Datasets </h2>
+                                      
+                                      <div class="quick-links">
+<a class="header-link"  href="{% url 'index' %}"> Home </a> <a class="header-link"  href="{% url 'downloads' %}"> Downloads </a><a class="header-link"  href="{% url 'logout' %}">Logout </a>
+                                         </div>
+                                         
+                                         
+                                    <div class="row card-align">
+                                      <div class="col s12 m6">
+                                      <div class="card teal">
+                                 <div class="card-content white-text">
+			   <h2 class="centered">Road Section Loadings</h2>
+		   <p class="centered bottomed">For various traffic scenarios as listed:</p>
+					    </div>
 				
-										    <div class="card-action centered">
-<a href="{% url 'rdbase' %}">Base Case Scenario </a> | <a href="{% url 'bcsp' %}">Projections Base Case </a> | <a href="{% url 'bwf' %}"> Base Working File </a> | <a href="{% url 'lpcu' %}">Road Traffic Loading PCUs </a> | <a href="{% url 'ltfc' %}"> Lamu Traffic </a> | <a href="{% url 'lpw' %}">With Lamu Port Working </a> | <a href="{% url 'expol' %}">Without POL Imports </a> | <a href="{% url 'pls' %}">Proportionate Lamu Share </a> | <a href="{% url 'rdfinal' %}">Road Final </a>
+	                      <div class="centered">
+<p><a class="spaced" href="{% url 'rdbase' %}">Base Case Scenario </a> &middot; <a class="spaced" href="{% url 'bcsp' %}">Projections Base Case </a> </p>
+
+<p> <a class="spaced" href="{% url 'bwf' %}"> Base Working File </a> &middot; 
+<a class="spaced" href="{% url 'lpcu' %}">Road Traffic Loading PCUs </a>
+ </p>
+
+<p><a class="spaced" href="{% url 'ltfc' %}"> Lamu Traffic </a> &middot; <a class="spaced" href="{% url 'lpw' %}">With Lamu Port Working </a></p>
+
+ <p><a class="spaced" href="{% url 'expol' %}">Without POL Imports </a> &middot;
+ <a class="spaced" href="{% url 'pls' %}">Proportionate Lamu Share </a> </p>
+ 
+ <p><a class="spaced" href="{% url 'rdfinal' %}">Road Final </a> &middot; <a class="spaced" href="{% url 'total-traffic' %}">Total Traffic </a></p>
 			        
 			        
 			        
 			     
-										    </div>
-										  </div>
-										</div>
-									      </div>
+					  </div>
+					</div>
+				     </div>
+				  </div>
                                                                                   
                                                                                 
                                                                                 
                                                                             
                                                                                 
-                                                                                    {% endblock %}
+                                            {% endblock %}
                                                                                     
                                                                                     
-                                                                                    {% block content1 %}
+                                           {% block content1 %}
                                                                                     
                                                                                     
-                                                                                    <div class="row card-align">
-										<div class="col s12 m6">
-										  <div class="card teal">
-										    <div class="card-content white-text">
-										 <h2 class="centered">Road Traffic Projections</h2>
-										  <p class="centered">Additional lanes required for each projected period :</p>
-										    </div>
+                                        <div class="row card-align">
+                                          <div class="col s12 m6">
+					  <div class="card teal">
+				    <div class="card-content white-text">
+				<h2 class="centered">Road Traffic Projections</h2>
+        <p class="centered bottomed">Additional lanes required for each projected period :</p>
+						</div>
 				
-										     <div class="card-action centered">
-<a href="{% url 'rdbaseprojctns' %}"> Base Case Scenario</a> | <a href="{% url 'bcsp-projections' %}">Projections Base Case </a> | <a href="{% url 'bwf-projections' %}"> Base Working Files </a> |
- <a href="{% url 'pls-projections' %}">Proportionate Lamu Share </a> | <a href="{% url 'lpcu-projections' %}">Road Traffic Loading PCUs </a> | <a href="{% url 'ltfc-projections' %}">Lamu Traffic </a> | <a href="{% url 'lpw-projections' %}">With Lamu Port Working  </a> |<a href="{% url 'expol-projections' %}">Without POL Imports </a> |<a href="{% url 'rdfinal-projections' %}"> Road Fianl </a> 
+				    <div class="centered">
+<p><a class="spaced" href="{% url 'rdbaseprojctns' %}"> Base Case Scenario</a> &middot; <a class="spaced" href="{% url 'bcsp-projections' %}">Projections Base Case </a> </p>
+
+<p><a class="spaced" href="{% url 'bwf-projections' %}"> Base Working Files </a> &middot;<a class="spaced" href="{% url 'pls-projections' %}">Proportionate Lamu Share </a> </p>
+
+<p><a class="spaced" href="{% url 'lpcu-projections' %}">Road Traffic Loading PCUs </a> &middot; <a class="spaced" href="{% url 'ltfc-projections' %}">Lamu Traffic </a> </p>
+
+<p><a class="spaced" href="{% url 'lpw-projections' %}">With Lamu Port Working  </a> &middot;<a class="spaced" href="{% url 'expol-projections' %}">Without POL Imports </a> </p>
+
+<p>
+<a class="spaced" href="{% url 'rdfinal-projections' %}"> Road Final </a> &middot; 
+<a class="spaced" href="{% url 'total-traffic-projections' %}"> Total Traffic </a>
+ </p>
 			        
 			        
 			        
 			     
-										    </div>
-										  </div>
-										</div>
-									      </div>
+					          </div>
+						</div>
+					     </div>
+					   </div>
                                                                                     
                                                                                    
             
-                                                                                       {% endblock %}
+                                                {% endblock %}
                                                                                        
                                                                                        
-                                                                                       {% block content2 %}
+                                             {% block content2 %}
                                                                                     
                                                                                     
-                                                                                    <div class="row card-align">
-										<div class="col s12 m6">
-										  <div class="card teal">
-										    <div class="card-content white-text">
-										 <h2 class="centered">Rail Traffic Section Loading</h2>
-								<p class="centered">No sufficient projected traffic to warrant additional capacity</p>
-										    </div>
+                                           <div class="row card-align">
+			                    <div class="col s12 m6">
+					     <div class="card teal">
+	                                 <div class="card-content white-text">
+			        <h2 class="centered">Rail Traffic Section Loading</h2>
+	   <p class="centered bottomed">No sufficient projected traffic to warrant additional capacity</p>
+						 </div>
 				
-										     <div class="card-action centered">
-	<a href="{% url 'rail-base' %}"> Rail Base Case Scenario</a> | <a href="{% url 'rltfc' %}"> With Rail Traffic Working </a> | <a href="{% url 'rail-final' %}"> Rail Final </a> 
+					<div class="centered">
+<p><a class="spaced" href="{% url 'rail-base' %}"> Rail Base Case Scenario</a> &middot; <a class="spaced" href="{% url 'rltfc' %}"> With Rail Traffic Working </a> </p>
+<p> <a class="spaced" href="{% url 'rail-final' %}"> Rail Final </a> </p>
 			      
-										    </div>
-										  </div>
-										</div>
-									      </div>
+						   </div>
+						  </div>
+						</div>
+					     </div>
                                                                                     
                                                                                    
             
-                                                                                       {% endblock %}
+                                                  {% endblock %}
                                                                                        
                                                                                        
                                                                                        
-                                                                                       {% block content3 %}
+                                                 {% block content3 %}
                                                                                     
                                                                                     
-                                                                                    <div class="row card-align">
-										<div class="col s12 m6">
-										  <div class="card teal">
-										    <div class="card-content white-text">
-										 <h2 class="centered">Pipeline Traffic</h2>
-								          <p class="centered">Projected traffic</p>
-										    </div>
+                                               <div class="row card-align">
+						 <div class="col s12 m6">
+						 <div class="card teal">
+					<div class="card-content white-text">
+				      <h2 class="centered">Pipeline Traffic</h2>
+				   <p class="centered bottomed">Projected traffic</p>
+							</div>
 				
-										     <div class="card-action centered">
-									<a href="{% url 'pipeline' %}"> Pipeline projected traffic</a> 
+					  <div class="centered">
+		  <a class="spaced href="{% url 'pipeline' %}"> Pipeline projected traffic</a> 
 			        
 			     
-										    </div>
-										  </div>
-										</div>
-									      </div>
+							</div>
+						     </div>
+						   </div>
+						 </div>
                                                                                     
                                                                                    
             
-                                                                                       {% endblock %}
+                                              {% endblock %}
                                                                                        
                                                                                        
                                                                                        

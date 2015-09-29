@@ -1,22 +1,50 @@
-                                                                            {% extends "section_base.html" %}
-                                                                            
-                                                                                 
-                                                                                  
-                                                                                 {% block content %}
-	                                                         <div id="index-banner" class="parallax-container">
-									    <div class="section no-pad-bot">
-									      <div class="container">
-										<br><br>
-										<h1 class="header center teal-text text-lighten-2">MasterPlan-ke</h1>
-										<div class="row center">
-							<h5 class="header col s12 light">Traffic Data Modelling & Projections For Kenya's 50-year Transport Master Plan</h5>
-										</div>
-										<div class="row center">
-		<a href="{% url 'datasets' %}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">View Datasets</a>
-										</div> 
-										<br><br>
+                                      {% extends "section_base.html" %}
+                                         
+                                           {% block header %}
+                                     <div class="navbar-fixed">
+                                <nav class="white txt-black" role="navigation">
+                                      <div class="nav-wrapper container">
+	       <a id="logo-container" href="http://masterplanke.com/" class="brand-logo">Masterplan-KE</a>
+	       
+				    <ul class="right hide-on-med-and-down">
+			      <li><a href="{% url 'datasets' %}"> Datasets </a></li>
+			      <li><a href="{% url 'downloads' %}"> Downloads </a></li>
+			<li><a href="http://masterplanke.com/admin/">AdminLogin </a></li>
+			       <li><a href="{% url 'signup' %}"> SignUp</a></li>
+											
+					</ul>
 
-									              </div>
+				  <ul id="nav-mobile" class="side-nav">
+			   <li><a href="{% url 'datasets' %}"> Datasets </a></li>
+			   <li><a href="{% url 'downloads' %}"> Downloads </a></li>
+		      <li><a href="http://masterplanke.com/admin/">AdminLogin</a></li>
+		             <li><a href="{% url 'signup' %}"> SignUp</a></li>
+					</ul>
+<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+					     </div>
+						</nav>
+						  </div>
+
+                                                                                  
+                                                            
+                                                                            
+                                                 {% endblock %}                                
+                                                                                  
+                                               {% block content %}
+	                            <div id="index-banner" class="parallax-container">
+				             <div class="section no-pad-bot">
+	                                         <div class="container">
+							<br><br>
+			<h1 class="header center teal-text text-lighten-2">MasterPlan-ke</h1>
+						<div class="row center">
+<h5 class="header col s12 light">Traffic Data Modelling & Projections For Kenya's 50-year Transport Master Plan</h5>
+							</div>
+						<div class="row center">
+<a href="{% url 'datasets' %}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">View Datasets</a>
+						        </div> 
+						   <br><br>
+
+						</div>             
                                                                                  
                                                                                   
-                                                                                         {% endblock %}
+                                                  {% endblock %}

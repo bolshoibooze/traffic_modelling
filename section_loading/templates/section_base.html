@@ -56,53 +56,22 @@
 <style>
 /*body {border:0;font-weight: normal;background-color:#F6F6F6 ;overflow:auto;color:black;font-size:1em;font-weight:normal;line-height: 1.4;font-family: 'Lato', sans-serif;padding: 0;margin: 0;} */
 
-/*
-.navigator {position: relative;margin: 30px 15px 0 0;text-align:center;}.navigator ul {margin: 0;padding: 0;}
-
-.navigator li {margin:0 5px 10px 0;padding:0;list-style:none;margin-top:5px;display: inline-block;}
-
-.navigator a {padding: 3px 12px;text-decoration: none;color: #0083ff;
-line-height: 100%; font-size: 1.3em;font-family: 'Fenix', serif;} .login-btn{border-radius:5px solid #DE1B1B;}
-
-.navigator a:hover {border-radius:5px;padding: 4px;border:2px solid #F08080;}.navigator a:visited{color: #7eccd4;}.navigator .current a {padding: 4px;border-bottom:3px solid #DE1B1B;}
-*/
-
-/* media queries to accomodate iPad */
-
-/*
-@media screen and (max-width: 600px) {
-.footer-navigator {display:none;}
-.content-area{margin-left:5%;margin-right:5%;color:black;font-size:135%;font-weight:normal;}
-.navigator {position: relative;min-height: 40px;}	
-.navigator ul {width: 180px;padding: 5px 0;position: absolute;top: 0;left: 0;
-background: #fff;  no-repeat 10px 11px;border-radius: 5px;margin-left:1%;}
-
-.navigator li {display: none;margin: 0;}.navigator .current {display: block;}
-.navigator a {display: block;padding: 5px 5px 5px 32px;text-align: left;}
-.navigator .current a {background: none;}
-}
-*/
-/* on nav hover
-.navigator ul:hover {background-image: none;}.navigator ul:hover li {display: block;margin: 0 0 5px;}
-.navigator.center ul {left: 50%;margin-left: -90px;border-bottom:3px solid #666;}img {width: 100%;}
- */
-h1{font-size:1.3em;text-align:center;}
-h2{font-size:1.7em;text-align:center;}
-h3{font-size:2.3em;text-align:center;}
-h4{font-size:3.1em;text-align:center;}
-h5{font-size:4.1em;text-align:center;}
-h6{font-size:5.5em;text-align:center;}
-.content {margin:3% 5% 15% 5%;} .header {position: sticky;top: 0;} .centered{text-align:center;}
-.card-align {margin-left:35%;} .txt-black {color:black;font-family: 'Lato', sans-serif;}
-
-nav ul a,
-nav .brand-logo {
-  color: black;
-}
+.quick-links{margin:2% 15% 2% 33%; border-top:2px solid #008080;border-bottom:2px solid #008080;width:35%;
+text-align:center;} .header-link{margin-left:4%; margin-right:4%;} .quick-links a:visited {color:#008080;}
+.quick-links a:link{} .quick-links a:hover {text-decoration:none; color:#B22222;padding-top:5px;} 
+h1{font-size:1.3em;text-align:center;}h2{font-size:1.7em;text-align:center;}h3{font-size:2.3em;text-align:center;}h4{font-size:3.1em;text-align:center;}h5{font-size:4.1em;text-align:center;}h6{font-size:5.5em;text-align:center;}
+.header {position: sticky;top: 0;} .centered{text-align:center;} .legend{margin-bottom:3%;border-bottom:1px solid black;}  .downloads {text-align:right;margin-right:2%;margin-left:2%;}
+.card-align {margin-left:28%;width:95%;} .txt-black {color:black;font-family: 'Lato', sans-serif;}
+.bottomed {border-bottom:1px solid white;} .spaced {margin-right:10px;color:#C0D9D9;text-decoration:none;}
+.bordered-header{ width:50%;margin-left:25%;border-bottom:1px solid black;margin-bottom:5%;margin-top:5%;}
+.form-section{margin-bottom:10%;} .required{color:#B22222;font-weight:bold;}
+.fieldWrapper {width:50%;margin-left:25%;} .align-btn {margin-left:25%;}
+#pagination a:link{background:#eee;border:1px solid #eee;padding:5px;} #pagination a:visited {color:black;}
+#pagination a:hover{text-decoration:none;padding-top:5px;}
+nav ul a,nav .brand-logo {color: black;}
 
 </style>
 
-<link rel="stylesheet" href="{{MEDIA_URL}}/css/basic.css">
 
 <!-- 
 <link rel="stylesheet" href="{{MEDIA_URL}}site_media/css/master.min.css">
@@ -122,30 +91,10 @@ nav .brand-logo {
 </head>
 
 <body>
+                                       
         
-                                                                                    {% block header %}
-                                                                                 <div class="navbar-fixed">
-                                                                           <nav class="white txt-black" role="navigation">
-									    <div class="nav-wrapper container">
-								       <a id="logo-container" href="#" class="brand-logo">Masterplan-KE</a>
-										      <ul class="right hide-on-med-and-down">
-										        <li><a href="{% url 'datasets' %}"> Datasets</a></li>
-											<li><a href="http://masterplanke.com/admin/">AdminLogin</a></li>
-											
-										      </ul>
-
-										      <ul id="nav-mobile" class="side-nav">
-										        <li><a href="{% url 'datasets' %}"> Datasets</a></li>
-											<li><a href="http://masterplanke.com/admin/">AdminLogin</a></li>
-										      </ul>
-										      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-										    </div>
-										  </nav>
-										</div>
-
-                                                                                  
-                                                                                  
-                                                                                  {% endblock %}
+                  {% block header %}{% endblock %}
+                                          
                                                                                 
                    
                    
@@ -183,8 +132,9 @@ nav .brand-logo {
                
 
                   {% block js %}
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js "></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+                     
          
                   {% endblock %}
 
