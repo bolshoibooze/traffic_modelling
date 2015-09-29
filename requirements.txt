@@ -3,6 +3,7 @@ pandas
 django-pandas
 XlsxWriter
 django-ajax-selects
+django-pure-pagination
 django-leaflet
 django-wpadmin
 django-celery
@@ -13,3 +14,4 @@ Pillow
 geopy
 numpy
 xlrd
+xlwt
