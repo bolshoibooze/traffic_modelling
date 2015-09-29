@@ -49,7 +49,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     full_name = models.CharField(max_length=50,verbose_name='First & Last Name')
     mug_shot = models.ImageField(upload_to='images/avatar',null=True,blank=True)
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
-    is_active   = models.BooleanField(default=True)
+    is_active   = models.BooleanField(default=False)#activate users manually ?
     is_admin    = models.BooleanField(default=False)
     is_staff    = models.BooleanField(default=False)
     

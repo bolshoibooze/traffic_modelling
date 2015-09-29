@@ -1,0 +1,61 @@
+		            {% extends "section_base.html" %}
+		                   {% block header %}
+                                     <div class="navbar-fixed">
+                                <nav class="white txt-black" role="navigation">
+                                      <div class="nav-wrapper container">
+	       <a id="logo-container" href="http://masterplanke.com/" class="brand-logo">Masterplan-KE</a>
+	       
+				    <ul class="right hide-on-med-and-down">
+			      <li><a href="{% url 'datasets' %}"> Datasets</a></li>
+			<li><a href="http://masterplanke.com/admin/">AdminLogin</a></li>
+			       <li><a href="{% url 'signup' %}"> SignUp</a></li>
+											
+					</ul>
+
+				  <ul id="nav-mobile" class="side-nav">
+			   <li><a href="{% url 'datasets' %}"> Datasets</a></li>
+		      <li><a href="http://masterplanke.com/admin/">AdminLogin</a></li>
+		             <li><a href="{% url 'signup' %}"> SignUp</a></li>
+					</ul>
+<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+					     </div>
+						</nav>
+						  </div>
+
+                                                                                  
+                                   {% endblock %}
+		                 
+		  
+                         
+                                 {% block content %}
+                       <h2 class="centered"> Log In </h2>
+                
+                                  <div class="form-section">
+    
+                <form   action="." method="post" >{% csrf_token %}
+
+                         <div class="required centered ">
+                         {{ form.non_field_errors }}
+                            </div>
+                           
+                             
+
+                       {% include "login_base.html" %}
+
+
+       <button class="btn waves-effect waves-light align-btn" type="submit" name="action">Submit</button>
+          
+                    
+
+ 
+                       </form>
+                     </div>
+           
+                     
+ 
+                                {% endblock %}
+ 
+ 
+ 
+ 
+
